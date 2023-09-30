@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilterValue } from 'redux/selectors';
 import { Contact } from 'components/Contact/Contact';
-import { ListItem, NoContactsText } from './Contacts.styled';
+import { ListItem, NoContactsText } from './ContactsList.styled';
 
-export const Contacts = () => {
+export const ContactsList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilterValue);
 
