@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilterValue } from 'redux/selectors';
 import { Contact } from 'components/Contact/Contact';
@@ -8,18 +7,10 @@ export const ContactsList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilterValue);
 
-  const visibleContacts = useMemo(
-    () =>
-      contacts.filter(contact => {
-        const findContactsByName = contact.name
-          .toLowerCase()
-          .includes(filter.toLowerCase());
-
-        return findContactsByName
-          ? findContactsByName
-          : contact.number.includes(filter);
-      }),
-    [contacts, filter]
+  const visibleContacts = contacts.filter(
+    contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+      contact.number.includes(filter)
   );
 
   return visibleContacts.length ? (

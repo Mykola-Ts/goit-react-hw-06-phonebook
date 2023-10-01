@@ -7,10 +7,6 @@ export const Wrapper = styled.div`
 
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
-
-  &:not(:last-child) {
-    margin-bottom: 40px;
-  }
 `;
 
 export const Title = styled.h2`
